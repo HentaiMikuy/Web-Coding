@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>材科B202随机点名</title>
+        <link href="name-taker.css" type="text/css" rel="stylesheet" />
+    </head>
+    <body>
+        <div id="content1">
+            <div id="content2">
+                <span id="span">
+                    随机点名
+                </span>
+            </div>
+            <button id="btn">
+                开始( ง⁼̴̀ω⁼̴́)ง⁼³₌₃
+            </button>
+        </div>
+        <div class="auth">
+            <p>Made By HentaiMikuy</p>
+        </div>
+
+        <script>
+            var arr = ['廖文彪','邹宇鑫','杜安喜','杨莉','刘其楠','郑嘉豪','蒙律江','龚国成','曾凌航','黄鸿成','魏明昊','郭金明','张宏','龚一城','马成锦','廖以豪','薛兆彬','康学羽','李林亭','刘聪茂','赵楠楠','邓睿','张权武','代志鑫','苏艳梅','王志斌','程江渝'];
+            var box = document.getElementById('btn');
+            var content = document.getElementById('content');
+            var span = document.getElementById('span');
+            var timer;
+            var testNum = true;
+            box.onclick = function(){
+                if(testNum){
+                    start();
+                    testNum = false;
+                    box.innerHTML = '开始 ( ง⁼̴̀ω⁼̴́)ง⁼³₌₃';
+                }
+                else{
+                    stop();
+                    box.innerHTML = '就决定是你了 (๑•̀ㅂ•́)و✧';
+                    testNum = true;
+                }
+            }
+            function start(){
+                timer = setInterval(function(){
+                    var num = random(0,arr.length-2);
+                    span.innerHTML = arr[num];
+                },1)
+            }
+            function stop(){
+                clearInterval(timer);
+            }
+            function random(a,b){
+                var randomNum = Math.round(Math.random()*(b-a)+a);
+                return randomNum;
+            }
+        </script>
+    </body>
+</html>
